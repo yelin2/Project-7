@@ -70,10 +70,37 @@
             var email = document.getElementById('email').value;
             var password = document.getElementById('password').value;
 
+            var url = 'http://localhost:3000/api/login';
+
+            sendAjax_login(url,email, password);
         }
 
         function sendAjax_login(url,email,password){
+            $.ajax({
+                type:"POST",
+                dataType: 'json',
+                url : url,
+                data : {
+                    'email' : email,
+                    'password': password,
+                },
+                async: false,
 
+                //성공적으로 서버에서 응답이 왔을때
+                success : (result,status)=>{
+
+                    //서버로부터 받은 데이터
+                    // var return_data = result.data;
+                    var return_data = result.data;    
+                    //받은데이터를 html에 삽입
+                    document.getElementById('return_data').innerHTML = return_data;
+                },
+
+                //서버와 데이터주고받기가 실패했을때
+                error: (request,status,error)=>{
+                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                }
+            });
         }
 
     </script>

@@ -1,5 +1,24 @@
 const router = require('express').Router();
 
+const mysql = require("mysql");
+let client = mysql.createConnection({
+    host: "localhost",
+    port: 3306,
+    user: "root",
+    password: "123456789qwer!",
+    database: "project7"
+  })
+
+  let jwt = require("jsonwebtoken");
+  let secretObj = require("../config/jwt");
+
+  client.connect(function(err){
+    if(!err){
+      console.log("Database is connected");
+    }else{
+      console.log("Error connecting database...nn: " + err);
+    }
+  })
 
 // http://localhost:3000/api 이후 부분의 라우팅
 
@@ -17,5 +36,43 @@ router.post('/test',(req, res)=>{
     })
 });
 
+router.post('/login', (req, res)=>{
+    // 1. data 받아오기
+    var email = req.body["email"];
+    var password = req.body["password"];
+    var token = "";
+
+    // 2. DB랑 정보 일치하는지 확인
+    client.query("SELECT * FROM User where email = ? and password = ?",[email, password], function(err, res1){
+        if(res1.length==0){
+            res.json({
+                "data": "email/password가 틀립니다."
+            })
+        }else{
+            token = jwt.sign({
+                email: res1.email,
+                password: res1.password
+            },
+            secretObj.secret,
+            {expiresIn: '5m'
+            })
+
+            res.json({
+                "data" : token
+            })
+
+
+
+        } 
+    });
+
+    /* if(!token){
+        console.log(token);
+        res.json({
+            "data" : token
+        })
+    } */
+    
+})
 
 module.exports = router;
