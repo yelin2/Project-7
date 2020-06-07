@@ -1,4 +1,3 @@
-//hi~~
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
@@ -10,6 +9,7 @@ let PORT = 3000;
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json());
 app.use(express.static('public'));
 
 ///////////// front-end routing (html 파일 띄워주는 곳)
