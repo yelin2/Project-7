@@ -2,7 +2,9 @@
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
-
+//mysql 연결
+var mysqlDB = require('./mysql-db');
+mysqlDB.connect();
 //포트설정
 let PORT = 3000;
 

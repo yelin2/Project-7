@@ -1,8 +1,11 @@
 const router = require('express').Router();
-
+var mysqlDB = require('../mysql-db');
 
 // http://localhost:3000/api 이후 부분의 라우팅
 
+router.get('/user_find',(req,res)=>{
+
+});
 
 router.post('/test',(req, res)=>{
 
