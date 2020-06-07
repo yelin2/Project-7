@@ -77,7 +77,7 @@ router.post('/test2', function(req, res){
         else{
             if(result.length < 0){
                 res.json({
-                    "message" : "평균이 0미만일수 없습니다."
+                    "message" : "정원이 0미만일수 없습니다."
                 })
             }
             else{
