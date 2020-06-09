@@ -24,7 +24,7 @@
             console.log(test_data);
 
             //라우팅한 경로를 작성합니다
-            var url = 'http://localhost:3000/api/test';
+            var url = 'http://localhost:3000/api/user_find';
 
             //서버에 데이터를보내는 ajax부분을 따로 함수로 작성
             sendAjax_test(url,test_data);
@@ -38,15 +38,15 @@
                 type:"POST",
                 url : url,
                 data : {
-                    'data' : test_data,
+                    'email' : test_data,
                 },
                 async: false,
 
                 //성공적으로 서버에서 응답이 왔을때
                 success : (result,status)=>{
-
+                    var id = result[0].email;
                     //서버로부터 받은 데이터
-                    var return_data = result.data;
+                    var return_data = id;
 
                     //받은데이터를 html에 삽입
                     document.getElementById('return_data').innerHTML = return_data;
@@ -58,23 +58,7 @@
                 }
             });
 
-        }
-
-
-        /////////////  직접 구현해야할 자바스크립트 부분 /////////////////
-
-        // 전송버튼을 누르면 이 login함수가 실행됩니다
-        function login() {
-
-            //입력한 데이터를 가져옵니다
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
-
-        }
-
-        function sendAjax_login(url,email,password){
-
-        }
+        }     
 
     </script>
 
@@ -93,24 +77,6 @@
     <button class="form_button" onclick="test()">전송</button>
 
     <div id="return_data"></div>
-
-</div>
-
-
-<div><a href="http://localhost:3000/search">as</a></div>
-
-<div class="title">로그인 로직 구현하기</div>
-<div class="content">
-
-    <div>
-        <input id="email" class="form" type="text" placeholder="이메일을 입력해주세요." />
-    </div>
-
-    <div>
-        <input id="password" class="form" type="password" placeholder="비밀번호를 입력해주세요." />
-    </div>
-
-    <button class="form_button" onclick="login()">전송</button>
 
 </div>
 

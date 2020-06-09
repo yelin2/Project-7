@@ -2,10 +2,12 @@ const router = require('express').Router();
 const mysql = require('mysql');
 const database = mysql.createConnection({
     host: "localhost",
-    user: "mysql 사용자 이름",
-    password: "mysql 비밀번호",
-    database: "PROJECT_7"
+    post: "3306",
+    user: "root",
+    password: "sky01015",
+    database: "user_db"
 });
+
 database.connect();
 
 // http://localhost:3000/api 이후 부분의 라우팅
@@ -58,7 +60,52 @@ router.post('/user', function(req, res){
     })
 });
 
-
+router.post('/user_find',(req,res)=>{
+    console.log(req.body);
+    var index=req.body.email;
+    const param=[index];
+    var sql = 'select e._id,u.email,s.title,u.point from user as u left join enrolment as e on e.user_id = u._id left join Subject as s on e.subject_id = s._id';
+    database.query(sql,function(err,results){
+        if(err){
+            res.json({
+                'message':err
+            });
+        }
+        else{
+            console.log(results);
+            var string=JSON.stringify(results);
+            const ans=JSON.parse(string);
+            sql = 'select email from user where _id = ?';
+            database.query(sql,param,function(err,results){
+                if(err)
+                {
+                    res.json({
+                        'message':err
+                    });
+                }
+                else{
+                    console.log(ans);
+                    string = JSON.stringify(results);
+                    var json = JSON.parse(string);
+                    console.log(json);
+                    var email = json[0].email;
+                    var datas=[];
+                    console.log(email);
+                    for(var i=0;i<ans.length;i++)
+                    {
+                        console.log(ans[i]);
+                        if(ans[i].email == email)
+                        {
+                            datas.push(ans[i]);
+                        }
+                    }
+                    console.log(datas);
+                    res.json(datas);
+                }
+            })
+        }
+    })
+});
 
 
 module.exports = router;

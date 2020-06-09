@@ -6,20 +6,23 @@ const http = require('http').Server(app);
 let PORT = 3000;
 
 //기타모듈 설정
+const indexRouter = require('./routes/index');
+
+const apiRouter = require('./routes/api');
 
 const bodyParser = require('body-parser');
+
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static('public'));
 
 ///////////// front-end routing (html 파일 띄워주는 곳)
-
-const indexRouter = require('./routes/index');
 app.use('/',indexRouter);
 
+app.use('/serach',indexRouter);
 ///////////// server routing (백엔드 api 들어가는 곳)
-
-const apiRouter = require('./routes/api');
 app.use('/api',apiRouter);
+
+
 
 ///////////////////
 http.listen(PORT,()=>{
