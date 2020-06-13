@@ -1,6 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 <head>
+
     <title>::: 한국항공대학교에 오신 것을 환영합니다 :::</title>
     <meta http-equiv="content-type" content="text/html;charset=utf-8" />
     <meta http-equiv="Content-Script-Type" content="text/javascript" />
@@ -10,7 +11,8 @@
     <link rel="stylesheet" type="text/css" href="http://www.kau.ac.kr/css/style_new.css">
 
     <link rel="stylesheet" href="css/login.css">
-
+    <!--    기타모듈 import-->
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
     <script>
 
         function login() {
@@ -19,13 +21,11 @@
             var password = document.getElementById('j_password').value;
 
             console.log(username + password);
-
-            // alert("hihi");
             
             // 입력받은 email, password 맞는지 확인
             var url = 'http://localhost:3000/api/login';
 
-            sendAjax_login(url,email, password);        
+            sendAjax_login(url,username, password);        
 
         }
 
@@ -43,13 +43,18 @@
                 //성공적으로 서버에서 응답이 왔을때
                 success : (result,status)=>{
 
-                    // 1. if token이 오면 서버로부터 받은 데이터를 cookie에 저장하고 main page로 옮기기
                     if(result.data==0){
+                        console.log('invalid id')
                         var err_msg = '이메일 or 비밀번호가 틀립니다.'
-                        document.getElementById('return_data').innerHTML = return_data;
+                        alert(err_msg);
+                        // 왜 main으로 갈까?
+                        
+                        
                     }else{
                         // token cookie에 저장
-                        // res.cookie('user_info', result.data)
+                        var cookie_val = "user_info="+result.data
+                        document.cookie = cookie_val
+
                         // main page로 이동
                         location.href="/main";
                     }

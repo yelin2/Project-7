@@ -1,0 +1,53 @@
+.assitance_warp {width:800px; margin:0 auto; height:100%;}
+
+/* 상단 */
+.assitance_header {width:800px; margin:0 auto; position:relative;}
+.assitance_header .logo_menu {clear:both; height:40px; padding:85px 0 10px 0;}
+.assitance_header .logo {float:left;}
+.assitance_header img { border:none; vertical-align:top;}
+.assitance_header span {padding-left:12px;}
+
+/* 로그인 */
+.cont_top_bg {position:relative; background:url("http://www.kau.ac.kr/images/common/main_tab_bg.gif") left top repeat; padding:10px; height:213px; display:table;}
+.assitance_warp .airport2 {position: absolute; right:37px; top:-52px;}
+
+.top_box {width:700px; height:161px; padding:28px 40px 28px 40px; background:#fff;}
+.top_box .left_box {float:left; width:350px; height:161px; border-right:solid 1px #dbdbdb;}
+.top_box .left_box .login_box {width:284px;}
+.top_box .left_box .login_box .login_tit {padding:14px 0 22px 0; line-height:0; font-size:0;}
+
+/* 로그인 박스 */
+.loginform{overflow:hidden; width:200px; float:left;}
+.loginform dt{float:left; width:54px; padding-right:4px;}
+.loginform dd{float:left; padding-bottom:5px;}
+.btn_lo{float:right;}
+
+/* 입력 박스 */
+.ipBasic{height:20px; background:#fff; border:1px solid #cdcdcd;}
+
+/* 공지 박스 */
+.top_box .right_box {float:right; width:313px;}
+.top_box .right_box .notice_box .notice_tit {padding:14px 0 22px 0; line-height:0; font-size:0;}
+.top_box .right_box .notice_box ul {width:313px; }
+.top_box .right_box .notice_box ul li {float:left; background:url('http://su.kau.ac.kr/images/new_su/icon_point.gif') 0px 5px no-repeat; padding-left:10px; margin-bottom:8px; width:303px;}
+.top_box .right_box .notice_box ul li a {font:normal 12px dotum; color:#333; text-decoration:none; }
+.top_box .right_box .notice_box ul li span {float:right; font:normal 12px dotum; color:#6b6b6b;}
+
+/* 하단 유의 사항 */
+.assitance_caution {width:800px; height:267px; background:url('http://su.kau.ac.kr/images/new_su/assitance_bg.gif') no-repeat; margin:30px 0 46px 0;}
+.caution_box {padding:18px 0 0 27px; width:697px; height:212px;}
+
+.caution_box p {margin-bottom:15px;}
+.caution_box ul {width:727px; }
+.caution_box ul li {float:left; background:url('http://su.kau.ac.kr/images/new_su/icon_point.gif') 0px 5px no-repeat; padding-left:10px; margin-bottom:7px; width:717px; color:#6b6b6b;}
+.caution_box ul li.blue {color:#392e87; font:bold 12px dotum;}
+.caution_box ul li .red {color:#e00000; font-weight:bold;}
+
+/* 수강 푸터 */
+.assitance_footer {border-top:1px solid #e0e0e0; margin:0 auto; width:100%; height:45px; }
+.assitance_footer .footer_img {margin:0 auto; width:820px; height:26px; padding-top:15px; vertical-align:top; }
+
+#layer01 {visibility:hide; visibility:hidden;}
+#layer02 {visibility:hide; visibility:hidden;}
+
+#layer03 {position:absolute ; top:197px; width:840px; left:120px;  height:230; visibility:hide; visibility:hidden;}
