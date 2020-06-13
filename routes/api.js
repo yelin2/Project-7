@@ -54,13 +54,13 @@ router.post('/login', (req, res)=>{
             })
         }else{
             token = jwt.sign({
-                "email": res1.email,
-                "password": res1.password
+                email: res1.email,
+                password: res1.password
             },
             secretObj.secret,
             {expiresIn: '5m'
-            })
-
+            });
+            console.log(token);
             res.json({
                 "data" : token
             })
@@ -110,7 +110,7 @@ router.post('/user_find',(req,res)=>{
             message: 'not logged in'
         });
     }else{
-            decoded=jwt.verify(token,secretObj.secret);
+            decoded=jwt.decode(token);
     }
     console.log(decoded);
 
