@@ -46,7 +46,7 @@ router.post('/login', (req, res)=>{
     client.query("SELECT * FROM User where email = ? and password = ?",[email, password], function(err, res1){
         if(res1.length==0){
             res.json({
-                "data": "email/password가 틀립니다."
+                "data": 0
             })
         }else{
             token = jwt.sign({
