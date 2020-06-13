@@ -1,14 +1,24 @@
 const router = require('express').Router();
 const mysql = require('mysql');
-const database = mysql.createConnection({
+const cookie = require('cookie');
+let client = mysql.createConnection({
     host: "localhost",
-    post: "3306",
+    port: 3306,
     user: "root",
     password: "sky01015",
     database: "user_db"
-});
+  })
 
-database.connect();
+  let jwt = require("jsonwebtoken");
+  let secretObj = require("../config/jwt");
+
+  client.connect(function(err){
+    if(!err){
+      console.log("Database is connected");
+    }else{
+      console.log("Error connecting database...nn: " + err);
+    }
+  })
 
 // http://localhost:3000/api 이후 부분의 라우팅
 
@@ -29,6 +39,34 @@ router.post('/test',(req, res)=>{
 
 });
 
+router.post('/login', (req, res)=>{
+    // 1. data 받아오기
+    var email = req.body.email;
+    var password = req.body.password;
+
+    var token = "";
+
+    // 2. DB랑 정보 일치하는지 확인
+    client.query("SELECT * FROM User where email = ? and password = ?",[email, password], function(err, res1){
+        if(res1.length==0){
+            res.json({
+                "data": 0
+            })
+        }else{
+            token = jwt.sign({
+                "email": res1.email,
+                "password": res1.password
+            },
+            secretObj.secret,
+            {expiresIn: '5m'
+            })
+
+            res.json({
+                "data" : token
+            })
+        }
+    });    
+})
 
 // DB연동 예시 (유저가 DB에 있는지)
 router.post('/user', function(req, res){
@@ -38,7 +76,7 @@ router.post('/user', function(req, res){
     var sql = 'SELECT * FROM User where email = ?';
     var params = [email];
 
-    database.query(sql, params,function(err,result){
+    client.query(sql, params,function(err,result){
         if(err){
             res.json({
                 "message" : "DB error"
@@ -61,22 +99,35 @@ router.post('/user', function(req, res){
 });
 
 router.post('/user_find',(req,res)=>{
-    console.log(req.body);
-    var index=req.body.email;
-    const param=[index];
+    var data = req.body.data;
+    var cookie_Data = cookie.parse(data);
+    var token=cookie_Data["user_info"];
+    console.log(token);
+    var decoded={};
+    if(!token) {
+        return res.status(403).json({
+            success: false,
+            message: 'not logged in'
+        });
+    }else{
+            decoded=jwt.verify(token,secretObj.secret);
+    }
+    console.log(decoded);
+
+    var param = [decoded.email];
+    console.log(param);
     var sql = 'select e._id,u.email,s.title,u.point from user as u left join enrolment as e on e.user_id = u._id left join Subject as s on e.subject_id = s._id';
-    database.query(sql,function(err,results){
+    client.query(sql,function(err,results){
         if(err){
             res.json({
                 'message':err
             });
         }
         else{
-            console.log(results);
             var string=JSON.stringify(results);
             const ans=JSON.parse(string);
-            sql = 'select email from user where _id = ?';
-            database.query(sql,param,function(err,results){
+            sql = 'select _id from user where email = ?';
+            client.query(sql,param,function(err,results){
                 if(err)
                 {
                     res.json({
@@ -84,16 +135,15 @@ router.post('/user_find',(req,res)=>{
                     });
                 }
                 else{
-                    console.log(ans);
+                    //console.log(ans);
                     string = JSON.stringify(results);
                     var json = JSON.parse(string);
-                    console.log(json);
-                    var email = json[0].email;
+                    //console.log(json);
+                    var email = json.email;
                     var datas=[];
-                    console.log(email);
+                    //console.log(email);
                     for(var i=0;i<ans.length;i++)
                     {
-                        console.log(ans[i]);
                         if(ans[i].email == email)
                         {
                             datas.push(ans[i]);

@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+    <!--    css파일 import-->
+    <link rel="stylesheet" href="css/main.css">
+
+    <!--    기타모듈 import-->
+    <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+
+    <!--    자바스크립트파일 import-->
+    <script type="text/javascript">
+        var return_subject = [];
+
+        function user_info(){
+            var url = 'http://localhost:3000/api/user_find';
+            var cookie_data = document.cookie;
+            console.log(cookie_data);
+            sendAjax_info(url,cookie_data);
+        }
+
+        function sendAjax_info(url,cookie_data){
+            $.ajax({
+                type:"POST",
+                url:url,
+                data:{
+                    'data': cookie_data,
+                },
+                async:false,
+
+                success:(result,status)=>{
+                    for(var i=0;i<result.length;i++)
+                    {
+                        return_subject.push(result[i].title);
+                    }
+                    var return_email = result['email'];
+                    var return_point = result['point'];
+                    document.getElementById('user_email').innerHTML = return_email;
+                    document.getElementById('user_point').innerHTML = return_point;
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+
+
+<!--일반사용자용 헤더-->
+<header id="user" class="header">
+
+    <div class="logo">
+        <img id="logo_img" src="http://www.kau.ac.kr/images/common/logo.gif" alt="한국한공대학" class="logo" />
+    </div>
+
+    <div class="logo">
+        <img id="logo_text" src="http://su.kau.ac.kr/images/new_su/assitance_imgtxt.gif" alt="수강신청"/>
+    </div>
+
+
+    <div id="temp"></div>
+
+    <div id="name">이기택님</div>
+    <div id="point">수강신청 포인트 : 1000/1000</div>
+    <div id="enroll">
+        <button class="info_button" onclick="user_info()">
+            신청현황
+        </button>
+    </div>
+    <div id="logout">로그아웃</div>
+
+</header>
+
+
+<!--관리자용 헤더-->
+<header id="admin" class="header">
+
+    <div class="logo">
+        <img id="logo_img" src="http://www.kau.ac.kr/images/common/logo.gif" alt="한국한공대학" class="logo" />
+    </div>
+
+    <div class="logo">
+        <img id="logo_text" src="http://su.kau.ac.kr/images/new_su/assitance_imgtxt.gif" alt="수강신청"/>
+    </div>
+
+
+    <div id="temp"></div>
+
+    <div id="name">관리자 계정</div>
+    <div id="enroll">신청마감</div>
+    <div id="logout">로그아웃</div>
+
+</header>
+
+
+
+<main id="main">
+
+    <div id='user_email'></div>
+    <div id='user_point'></div>
+    <div id='user_subject'>
+        <script>
+            for(var i=0;i<return_subject.length;i++)
+            {
+                document.write(i+" : "+return_subject[i]);
+            }
+        </script>
+    </div>
+    <!--    요 박스가 반복-->
+
+    <div class="content_all">
+        <div class="content_header">
+            <div class="header_top">
+                <div class="content_title">
+                    과목명
+                </div>
+
+                <div class="temp"></div>
+
+                <div class="content_enroll">
+                    신청인원 / 정원
+                </div>
+            </div>
+
+            <div class="header_bottom">
+                <div class="content_title">
+                    Computer Networks(0517)
+                </div>
+
+                <div class="temp"></div>
+
+                <div class="content_enroll">
+                    10 / 50
+                </div>
+            </div>
+
+        </div>
+
+        <div class="content_box">
+
+            <div class="content_left">
+                이 강의는 아주 재밌어요 <br>
+                그리고 엄청 좋아요
+            </div>
+
+            <div class="content_right">
+                <div>평균 배팅점수 : 251.3</div>
+                <div>1등 배팅점수 : 350</div>
+                <div>2등 배팅점수 : 330</div>
+                <div>3등 배팅점수 : 295</div>
+
+                <div class="enroll_box">
+                    <input class="enroll_input" type="text">
+                    <button class="enroll_button">신청하기</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+<!--    여기까지-->
+
+    <div class="content_all">
+        <div class="content_header">
+            <div class="header_top">
+                <div class="content_title">
+                    과목명
+                </div>
+
+                <div class="temp"></div>
+
+                <div class="content_enroll">
+                    신청인원 / 정원
+                </div>
+            </div>
+
+            <div class="header_bottom">
+                <div class="content_title">
+                    Computer Networks(0517)
+                </div>
+
+                <div class="temp"></div>
+
+                <div class="content_enroll">
+                    10 / 50
+                </div>
+            </div>
+
+        </div>
+
+        <div class="content_box">
+
+            <div class="content_left">
+                이 강의는 아주 재밌어요 <br>
+                그리고 엄청 좋아요
+            </div>
+
+            <div class="content_right">
+                <div>평균 배팅점수 : 251.3</div>
+                <div>1등 배팅점수 : 350</div>
+                <div>2등 배팅점수 : 330</div>
+                <div>3등 배팅점수 : 295</div>
+
+                <div class="enroll_box">
+                    <input class="enroll_input" type="text">
+                    <button class="enroll_button" >신청하기</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="content_all">
+        <div class="content_header">
+            <div class="header_top">
+                <div class="content_title">
+                    과목명
+                </div>
+
+                <div class="temp"></div>
+
+                <div class="content_enroll">
+                    신청인원 / 정원
+                </div>
+            </div>
+
+            <div class="header_bottom">
+                <div class="content_title">
+                    Computer Networks(0517)
+                </div>
+
+                <div class="temp"></div>
+
+                <div class="content_enroll">
+                    10 / 50
+                </div>
+            </div>
+
+        </div>
+
+        <div class="content_box">
+
+            <div class="content_left">
+                이 강의는 아주 재밌어요 <br>
+                그리고 엄청 좋아요
+            </div>
+
+            <div class="content_right">
+                <div>평균 배팅점수 : 251.3</div>
+                <div>1등 배팅점수 : 350</div>
+                <div>2등 배팅점수 : 330</div>
+                <div>3등 배팅점수 : 295</div>
+
+                <div class="enroll_box">
+                    <input class="enroll_input" type="text">
+                    <button class="enroll_button">신청하기</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</main>
+
+</body>
+</html>

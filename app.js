@@ -12,9 +12,13 @@ const apiRouter = require('./routes/api');
 
 const bodyParser = require('body-parser');
 
+const cookieParser = require('cookie-parser');
+
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static('public'));
+app.use(bodyParser.json());
 
+app.use(cookieParser());
 ///////////// front-end routing (html 파일 띄워주는 곳)
 app.use('/',indexRouter);
 
