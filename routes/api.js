@@ -60,6 +60,34 @@ router.post('/test',(req, res)=>{
 //     })
 // });
 
+// 과목명, 과목소개, 정원
+router.post('/subject',function(req, res){
+    // console.log(req.body.data);
+    var sql = 'SELECT * FROM subject';
+
+    database.query(sql, function(err,result){
+        if(err){
+            res.json({
+                "message" : "DB error"
+            })
+        }
+        else{
+
+            if(result.length == 0){
+                res.json({
+                    "message" : "과목조회 실패"
+                })
+            }
+
+            else{
+                console.log(result);
+                res.json({
+                    "message" : result
+                })
+            }
+        }
+    })
+});
 
 
 
