@@ -8,4 +8,18 @@ router.get('/',(req, res)=>{
     });
 });
 
+router.get('/login',(req, res)=>{
+    fs.readFile("./views/login.html", "utf-8", (err, data)=>{
+        res.type('text/html');
+        res.send(data);
+    });
+});
+
+router.get('/main',(req, res)=>{
+    fs.readFile("./views/main.html", "utf-8", (err, data)=>{
+        res.type('text/html');
+        res.send(data);
+    });
+});
+
 module.exports = router;

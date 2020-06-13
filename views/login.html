@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
+<head>
+    <title>::: 한국항공대학교에 오신 것을 환영합니다 :::</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <meta http-equiv="Content-Script-Type" content="text/javascript" />
+    <meta http-equiv="Content-Style-Type" content="text/css" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <link rel="stylesheet" type="text/css" href="http://www.kau.ac.kr/css/style_new.css">
+
+    <link rel="stylesheet" href="css/login.css">
+
+    <script>
+
+        function login() {
+
+            var username = document.getElementById('j_username').value;
+            var password = document.getElementById('j_password').value;
+
+            console.log(username + password);
+
+            alert("hihi");
+
+            location.href="/main";
+
+
+        }
+
+    </script>
+
+</head>
+
+<body>
+
+
+<div class="assitance_warp">
+    <div class="assitance_header">
+        <div class="logo_menu">
+            <a href="http://www.kau.ac.kr/page/main.jsp" target="_top"><img src="http://www.kau.ac.kr/images/common/logo.gif" alt="한국한공대학" class="logo" /></a>
+            <span><img src="http://su.kau.ac.kr/images/new_su/assitance_imgtxt.gif" alt="수강신청"/></span>
+        </div>
+    </div>
+
+    <div class="cont_top_bg">
+        <div class="airport2"><img src="http://su.kau.ac.kr/images/new_su/air.png" alt="비행기" /></div>
+
+        <div class="top_box">
+            <div class="left_box">
+                <div class="login_box">
+                    <form name="f" method="post" action="j_spring_security_check">
+                        <input type="hidden" name="mode" value="login_hakbu" >
+                        <p class="login_tit"><img src="http://su.kau.ac.kr/images/new_su/assitance_imgtxt01.gif" alt="LOG-IN" /></p>
+                        <dl class="loginform">
+                            <dt><label for="id"><img src="http://su.kau.ac.kr/images/new_su/num_txt.gif" alt="학번"/></label></dt>
+                            <dd><input type="text" name="j_username" id="j_username" class="ipBasic" value="" style="width:140px;"></dd>
+
+                            <dt><label for="v_password"><img src="http://su.kau.ac.kr/images/new_su/pass_txt.gif" alt="비밀번호"/></label></dt>
+                            <dd><input type="password" name="j_password" id="j_password" class="ipBasic" value="" style="width:140px;"></dd>
+                        </dl>
+                    </form>
+                    <p class="btn_lo"><img  src="http://su.kau.ac.kr/images/new_su/btn_login.gif" alt="로그인" onclick="javascript:login()" style="cursor:pointer"></p>
+                </div>
+            </div>
+
+            <div class="right_box">
+                <div class="notice_box">
+                    <p class="notice_tit"><img src="http://su.kau.ac.kr/images/new_su/assitance_imgtxt02.gif" alt="공지사항" /></p>
+                    <ul>
+                        <li><a href="http://kau.ac.kr/page/kauspace/academicinfo_list.jsp?search_boardId=9390" target="_blank">2020학년도 1학기 신/편입생 수강신청 안내<span>2020.02.25</span></a></li>
+                        <li><a href="http://kau.ac.kr/page/kauspace/academicinfo_list.jsp?search_boardId=9381" target="_blank">2020학년도 1학기 수강신청 안내<span>2020.01.30</span></a></li>
+                        <li><a href="http://kau.ac.kr/page/kauspace/academicinfo_list.jsp?search_boardId=9386" target="_blank">선진화 강좌 유형 안내<span>2020.02.07</span></a></li>
+                        <li><a href="http://grad.kau.ac.kr/page/web/grad/board/notice.jsp?search_boardId=1487" target="_blank">일반대학원)수강신청 안내<span>2020.02.24</span></a></li>
+                        <li><a href="http://gradbus.kau.ac.kr/page/web/gradbus/board/notice.jsp?search_boardId=640" target="_blank">항경대학원)수강신청 안내<span>2020.02.24</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="assitance_caution">
+        <div class="caution_box">
+            <p><img src="http://su.kau.ac.kr/images/new_su/assitance_imgtxt03.gif" alt="주의 사항" /></p>
+            <ul>
+                <li class="blue">Internet Explorer 옵션 설정 확인<br>
+                    <span style="display:blue; margin-top:5px;">임시 인터넷 파일에서 "자동" -> "웹페이지를 열때 마다"로 설정</span> <a href="/alert.html" target="_new"><font color="red"><strong>그림 보기 Click</strong></font><br></a>
+                    <span style="display:blue; margin-top:5px;"><font color="red">※ 옵션 설정에 따라 수강신청시 불이익(신청 버튼 미생성 등)이 있을 수 있으므로 수강신청 전 반드시 확인하세요</font><br><br></li>
+                <li class="blue">필히 학번으로 로그인해야 합니다. 닉네임(아이디) 사용불가</li>
+                <li class="blue">수강신청 페이지 복수로그인 불가합니다.(1인 1로그인만 가능)</li>
+                <li class="blue">비정상적인 수강신청 행위를 하는 학생에게는 수강신청 취소 등 불이익이 있을 수 있음.(특정 소프트웨어 사용 등 행위시)</li>
+                <!--<li><b>(학부)</b> 수강지도 상담 미완료자는 수강신청 불가</li>-->
+                <li>연락처 : 공학교육혁신센터(300-0451), 항우기(300-0100,0170), 항전정(300-0120,0130), 소프트(300-0180), 재료(300-0160)
+                    <span style="display:block; padding-left:48px; margin-top:7px;">경영(300-0090,0350),운항(300-0080),항교물(300-0150),영어(300-0330),인문자연(300-0014),자유전공(300-0330)</span>
+                </li>
+                <li>연락처 : 교무팀(02-300-0364),일반대학원(02-300-0303,0304), 항공경영대학원(02-300-0314)
+                    <span style="display:block; padding-left:48px; margin-top:7px;">
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="assitance_footer">
+    <p class="footer_img"><img src="http://su.kau.ac.kr/images/new_su/footer.gif" alt="" /></p>
+    <ul>
+
+    </ul>
+</div>
+
+</body>
+</html>

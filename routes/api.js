@@ -1,12 +1,14 @@
 const router = require('express').Router();
-const mysql = require('mysql');
-const database = mysql.createConnection({
-    host: "localhost",
-    user: "mysql 사용자 이름",
-    password: "mysql 비밀번호",
-    database: "PROJECT_7"
-});
-database.connect();
+
+// const mysql = require('mysql');
+// const database = mysql.createConnection({
+//     host: "localhost",
+//     user: "mysql 사용자 이름",
+//     password: "mysql 비밀번호",
+//     database: "PROJECT_7"
+// });
+// database.connect();
+
 
 // http://localhost:3000/api 이후 부분의 라우팅
 
@@ -29,34 +31,34 @@ router.post('/test',(req, res)=>{
 
 
 // DB연동 예시 (유저가 DB에 있는지)
-router.post('/user', function(req, res){
-
-    var email = req.body.email;
-
-    var sql = 'SELECT * FROM User where email = ?';
-    var params = [email];
-
-    database.query(sql, params,function(err,result){
-        if(err){
-            res.json({
-                "message" : "DB error"
-            })
-        }
-        else{
-
-            if(result.length == 0){
-                res.json({
-                    "message" : "유저정보 조회 실패"
-                })
-            }
-            else{
-                res.json({
-                    "message" : "유저정보 조회 성공"
-                })
-            }
-        }
-    })
-});
+// router.post('/user', function(req, res){
+//
+//     var email = req.body.email;
+//
+//     var sql = 'SELECT * FROM User where email = ?';
+//     var params = [email];
+//
+//     database.query(sql, params,function(err,result){
+//         if(err){
+//             res.json({
+//                 "message" : "DB error"
+//             })
+//         }
+//         else{
+//
+//             if(result.length == 0){
+//                 res.json({
+//                     "message" : "유저정보 조회 실패"
+//                 })
+//             }
+//             else{
+//                 res.json({
+//                     "message" : "유저정보 조회 성공"
+//                 })
+//             }
+//         }
+//     })
+// });
 
 
 
