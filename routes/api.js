@@ -83,11 +83,7 @@ router.post('/test2', function(req, res){
             else{
                 var sql_='select user_id,point from enrolment where subject_id=? order by point desc limit ?';
                 database.query(sql_,[_id,result[0].num],function(err_,result_){
-                    /*
-                    for(var i=0;i<result_.length;i++){
-                        console.log(result_[i].user_id,result_[i].point);
-                    }
-                    */
+                    
                     res.json({
                         "message": result_
                     })
