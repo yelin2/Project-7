@@ -19,6 +19,7 @@
         function test() {
 
             //입력한 데이터를 가져옵니다
+            console.log('test');
             var test_data = document.getElementById('test').value;
 
             console.log(test_data);
@@ -60,23 +61,53 @@
 
         }
 
-
-        /////////////  직접 구현해야할 자바스크립트 부분 /////////////////
-
-        // 전송버튼을 누르면 이 login함수가 실행됩니다
-        function login() {
+        function bettingpoint() {
 
             //입력한 데이터를 가져옵니다
-            var email = document.getElementById('email').value;
-            var password = document.getElementById('password').value;
+            var test_data = document.getElementById('point').value;
+
+            
+            console.log(test_data);
+
+            //라우팅한 경로를 작성합니다
+            var url_ = 'http://localhost:3000/api/bettingpoint';
+
+            //서버에 데이터를보내는 ajax부분을 따로 함수로 작성
+            sendAjax_test(url_,test_data);
 
         }
 
-        function sendAjax_login(url,email,password){
+        /*function sendAjax_test(url,test_data){
 
-        }
+            //ajax를 이용해 페이지 새로고침없이 서버에 데이터를 보냅니다 (복사해서 적절히 수정하여 사용하시면 됩니다)
+            $.ajax({
+                type:"POST",
+                url : url,
+                data : {
+                    'data' : test_data,
+                },
+                async: false,
 
-    </script>
+                //성공적으로 서버에서 응답이 왔을때
+                success : (result,status)=>{
+
+                    //서버로부터 받은 데이터
+                    var return_data = result.data;
+
+                    //받은데이터를 html에 삽입
+                    document.getElementById('return_data').innerHTML = return_data;
+                },
+
+                //서버와 데이터주고받기가 실패했을때
+                error: (request,status,error)=>{
+                    alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+                }
+            });
+        }*/
+
+
+
+        </script>
 
 </head>
 <body>
@@ -89,10 +120,15 @@
 <div class="content">
 
     <input id="test" class="form" type="text" placeholder="테스트 데이터를 입력해주세요." />
+    
+   <button class="form_button" onclick="test()">전송</button>
+    <br>
+    <input id="point" class="form" type="text" placeholder="배팅할 포인트를 입력해주세요." />
 
-    <button class="form_button" onclick="test()">전송</button>
+    <button class="form_button" onclick="bettingpoint()">전송</button>
 
-    <div id="return_data"></div>
+
+    <div id="return_data"+"bhh"></div>
 
 </div>
 

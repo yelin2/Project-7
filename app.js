@@ -9,6 +9,7 @@ let PORT = 3000;
 
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.json()); 
 app.use(express.static('public'));
 
 ///////////// front-end routing (html 파일 띄워주는 곳)
@@ -26,4 +27,6 @@ http.listen(PORT,()=>{
     console.log(PORT+'번 포트에서 Connected!');
 });
 
+
 //신태원의 branch
+
