@@ -3,8 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="ee17cb44-f0bc-4923-a2ba-b210bcb469e9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/api.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/views/main.html" beforeDir="false" afterPath="$PROJECT_DIR$/views/main.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -27,7 +34,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/views" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -52,7 +59,14 @@
       <workItem from="1591597322346" duration="130000" />
       <workItem from="1591704968296" duration="1036000" />
       <workItem from="1591759848523" duration="324000" />
-      <workItem from="1592031001677" duration="1994000" />
+      <workItem from="1592031001677" duration="4433000" />
+      <workItem from="1592040246134" duration="1470000" />
+      <workItem from="1592125832310" duration="5737000" />
+      <workItem from="1592132498643" duration="1044000" />
+      <workItem from="1592389302481" duration="361000" />
+      <workItem from="1592526830039" duration="5742000" />
+      <workItem from="1592541457550" duration="996000" />
+      <workItem from="1592544618890" duration="732000" />
     </task>
     <servers />
   </component>
@@ -68,9 +82,9 @@
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
     <state x="551" y="217" width="845" height="708" key="find.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1591705309231" />
-    <state x="512" y="220" width="670" height="676" key="search.everywhere.popup" timestamp="1591705128886">
+    <state x="512" y="220" width="670" height="676" key="search.everywhere.popup" timestamp="1592131261892">
       <screen x="0" y="23" width="1792" height="1097" />
     </state>
-    <state x="512" y="220" width="670" height="676" key="search.everywhere.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1591705128886" />
+    <state x="512" y="220" width="670" height="676" key="search.everywhere.popup/0.23.1792.1097@0.23.1792.1097" timestamp="1592131261892" />
   </component>
 </project>

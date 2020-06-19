@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
+const cors = require('cors');
 
 //포트설정
 let PORT = 3000;
@@ -12,6 +13,8 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
 app.use(express.static('public'));
+
+app.use(cors());
 
 ///////////// front-end routing (html 파일 띄워주는 곳)
 
