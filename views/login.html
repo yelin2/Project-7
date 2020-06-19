@@ -25,7 +25,7 @@
             // 입력받은 email, password 맞는지 확인
             var url = 'http://localhost:3000/api/login';
 
-            sendAjax_login(url,username, password);        
+            sendAjax_login(url, username, password);        
 
         }
 
@@ -48,7 +48,7 @@
                         var err_msg = '이메일 or 비밀번호가 틀립니다.'
                         alert(err_msg);
                         // 왜 main으로 갈까?
-                        
+
                         
                     }else{
                         // token cookie에 저장
